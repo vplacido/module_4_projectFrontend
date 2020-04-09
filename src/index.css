@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.PostUl {
+  width: 80%;
+ margin: auto;
+ justify-content: center;
+ align-items: center;
+ font-family: sans-serif;
+ list-style-type: none;
+}
+
+.PostLi {
+  flex-direction: column;
+ width: 600px;
+ margin: auto;
+ margin-top: 60px;
+ border: 1px solid lightgrey;
+ text-align: center;
+}
+.PostLi img {
+  max-width: 600px;
+ max-height: 600px;
+ object-fit: cover;
+ height: 100%;
+ width: 100%;
+}
+
+.username {
+display: flex;
+ align-items: center;
+ padding: 16px;
+ height: 27px;
+}
+
+.img {
+  border-radius: 50%;
+ width: 10px;
+ height: 10px;
+ margin-right: 10px;
+}
+
+.imgContainer {
+  width: 10%;
+  height: 50px;
+}
