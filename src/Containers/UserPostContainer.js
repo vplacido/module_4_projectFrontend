@@ -8,11 +8,11 @@ class UserPostContainer extends Component {
 			content: ""
 		}
 	}
-	renderUser = () => {
-		fetch("http://localhost:3000/users")
-		.then(response => response.json())
-		.then(usersData => console.log(usersData))
-	}
+	// renderUser = () => {
+	// 	fetch("http://localhost:3000/users")
+	// 	.then(response => response.json())
+	// 	.then(usersData => console.log(usersData))
+	// }
 
 	newPost = (newPost) => {
 		fetch("http://localhost:3000/posts",{
@@ -25,15 +25,18 @@ class UserPostContainer extends Component {
 				newPost
 			)
 		})
-		.then(response => response.json())
-		.then(data => console.log(data))
 		
 	}
 	render(){
 		return(
-			<div>
+			<div className="container">
+			<div className="top-half">
 				<NewPostForm newPost={this.newPost}/>
-				{this.renderUser()}
+				{/* {this.renderUser()} */}
+			</div>
+			<div className="bot-half">
+
+			</div>
 			</div>
 		)
 	}

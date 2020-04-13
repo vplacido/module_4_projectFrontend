@@ -20,7 +20,12 @@ class HomePageContainer extends Component {
 
 	// <li className="PostLi"><Post allData={data}/></li>)
 	renderPosts = () => {
-		return	this.state.allData.map(data => <Post allData={data}/>)
+		// return	this.state.allData.map(data => <Post allData={data}/>)
+		let arr = []
+		for(let i = this.state.allData.length -1; i > -1; i--) {
+			arr.push(<Post allData ={this.state.allData[i]} />) 
+		}
+		return arr
 	}
 	render(){
 		return(

@@ -1,36 +1,44 @@
 import React, {Component} from 'react'
 import Comment from './Comment'
 class CommentList extends Component {
-	// constructor(){
-	// 	super()
-	// 	this.state = {
-	// 		user: []
-	// 	}
-	// }
 
-	// componentDidMount(){
-	// 	fetch("http://localhost:3000/users")
-	// 	.then(response => response.json())
-	// 	.then(userData => (
-	// 		this.setState({
-	// 			user: userData.filter(user => (
-	// 				user.id === 
-	// 			))
-	// 		})
-	// 	))
-	// }
+	constructor(){
+		super()
+		this.state = {
+			content: ""
+		}
+	}
+
+
 
 	renderComment = () => {
 		return this.props.allComment.map(comment => 
 		<li>
 			<Comment deleteComment={this.props.deleteComment}comment={comment}/>
-		</li>)
+		</li>
+		)
 	}
+
+	newContent = (e) => {
+		this.setState({
+			content: e.target.value
+		})
+	}
+
+
+
 	render(){
+
+		
 		return(
+			<div>
+				<form onSubmit={ () => this.props.addToComment(this.state.content)}>
+				<input type="text" placeholder="write a comment here..." onChange={this.newContent}/>
+				</form>
 			<ul>
 				{this.renderComment()}
 			</ul>
+			</div>
 		)
 	}
 }
