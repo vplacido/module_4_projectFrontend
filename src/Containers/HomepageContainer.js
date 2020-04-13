@@ -18,8 +18,9 @@ class HomePageContainer extends Component {
 		))
 	}
 
+	// <li className="PostLi"><Post allData={data}/></li>)
 	renderPosts = () => {
-	return	this.state.allData.map(data => <li className="PostLi"><Post allData={data}/></li>)
+		return	this.state.allData.map(data => <Post allData={data}/>)
 	}
 	render(){
 		return(
