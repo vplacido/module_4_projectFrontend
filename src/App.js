@@ -5,13 +5,14 @@ import UserPostContainer from './Containers/UserPostContainer';
 import NewUserForm from './components/NewUserForm'
 import ProfilePage from './components/ProfilePage'
 import Login from './components/Login'
+import NewPostForm from './components/NewPostForm'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   useRouteMatch,
-  useParams
+  useParams 
 } from "react-router-dom";
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
        <Route exact path="/signup" render={() => {
         return <NewUserForm/>
       }}/>
+        <Route exact path="/posts/new" component={NewPostForm}/>
     </div>
     </Router>
   );

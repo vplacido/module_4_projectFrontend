@@ -9,18 +9,47 @@ import {
   useParams
 } from "react-router-dom";
 class NavBar extends Component {
+
+
+
+	newPost = () => {
+		return window.location = "/posts/new"
+	}
+	homepage = () => {
+		return window.location = "/homepage"
+	}
 	render(){
 		return(
 			<Router>
 			<div>
 			<nav className="navbar navbar-light bg-light">
 				<div className=".col-xs-6 .col-md-4">
-					<span className="navbar-brand mb-0 h1"><i className="fa fa-download"></i></span>
+					<span className="navbar-brand mb-0 h1">
+					<Link to="/homepage">
+					<svg onClick={() => {return window.location ="/homepage"}}class="bi bi-star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  				<path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 00-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 00-.163-.505L1.71 6.745l4.052-.576a.525.525 0 00.393-.288l1.847-3.658 1.846 3.658a.525.525 0 00.393.288l4.052.575-2.906 2.77a.564.564 0 00-.163.506l.694 3.957-3.686-1.894a.503.503 0 00-.461 0z" clip-rule="evenodd"/>
+					</svg>
+					</Link>
+
+
+
+
+					</span>
 				</div>
 				<div className=".col-xs-6 .col-md-4">
 					<span className="navbar-brand mb-0 h1"><SearchBar /></span>
 				</div>
 			<div className=".col-xs-6 .col-md-4">
+
+
+			<Link to="/posts/new"><span className="navbar-brand mb-0 h1">
+			<svg onClick={() => {this.newPost()}}class="bi bi-plus-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  			<path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+  			<path fill-rule="evenodd" d="M7.5 8a.5.5 0 01.5-.5h4a.5.5 0 010 1H8.5V12a.5.5 0 01-1 0V8z" clip-rule="evenodd"/>
+  			<path fill-rule="evenodd" d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
+			</svg>
+			</span>
+			</Link>
 				<Link to="/users/:id"><span className="navbar-brand mb-0 h1">
 					<svg className="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   				<path fillRule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clipRule="evenodd"/>

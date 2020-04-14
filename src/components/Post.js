@@ -34,7 +34,8 @@ class Post extends Component {
 		return <p>{this.state.comments.map(comment => comment.content)}</p>
 	}
 
-	addToComment = (content) => {
+
+	addToComment = (content, obj) => {
 		fetch('http://localhost:3000/comments', {
 			method: "POST",
 			headers: {
@@ -43,7 +44,7 @@ class Post extends Component {
 			},
 			body: JSON.stringify({
 				user_id: 27,
-				post_id: 24,
+				post_id: obj.id,
 				content: content
 			})
 		})
@@ -84,11 +85,15 @@ class Post extends Component {
 					<div className="likeCommentDiv">
 						<div className="likeDiv">
 							<button className="likeButton">
+
+
 								<i className="fa fa-heart"></i>
+							
+					
 							</button>
 						</div>
 							<button className="commentButton">
-								<i className="fa fa-comment-o"></i>
+								<i onClick={this.renderComments} className="fa fa-comment-o"></i>
 							</button>
 					</div>
 					<div className="likesDiv">
@@ -97,11 +102,11 @@ class Post extends Component {
 					
 					<p>{this.props.allData.content}</p>
 					{!this.state.showComment ? (
-						<p onClick={this.renderComments}className="view-comments">{`view all ${this.state.comments.length} comments`}</p>
+						<p onClick={this.renderComments} className="view-comments">{`view all ${this.state.comments.length} comments`}</p>
 					) : (
 					<div>
-						<p onClick={this.renderComments}className="view-comments">{`hide all ${this.state.comments.length} comments`}</p>
-						<CommentList deleteComment={this.deleteComment}user={this.state.user} allComment={this.state.comments}
+						<p onClick={this.renderComments} className="view-comments">{`hide all ${this.state.comments.length} comments`}</p>
+						<CommentList post={this.props.post} deleteComment={this.deleteComment}user={this.state.user} allComment={this.state.comments}
 						addToComment = {this.addToComment}
 						/>
 					</div>

@@ -18,12 +18,14 @@ class HomePageContainer extends Component {
 		))
 	}
 
+
 	// <li className="PostLi"><Post allData={data}/></li>)
 	renderPosts = () => {
 		// return	this.state.allData.map(data => <Post allData={data}/>)
 		let arr = []
 		for(let i = this.state.allData.length -1; i > -1; i--) {
-			arr.push(<Post allData ={this.state.allData[i]} />) 
+			let post = this.state.allData.find(post => post.id === this.state.allData[i].id)
+			arr.push(<Post post={post} key={this.state.allData[i].id} allData ={this.state.allData[i]} />) 
 		}
 		return arr
 	}

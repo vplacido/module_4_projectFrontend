@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { tsConditionalType } from '@babel/types'
 
 class Comment extends Component {
 
