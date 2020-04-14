@@ -11,15 +11,16 @@ class Comment extends Component {
 	}
 
 	componentDidMount(){
-		fetch("http://localhost:3000/users")
-		.then(response => response.json())
-		.then(userData => (
-			this.setState({
-				user: userData.filter(user => (
-					user.id === this.props.comment.user_id
-				))
-			})
-		))
+		// fetch("http://localhost:3000/users")
+		// .then(response => response.json())
+		// .then(userData => (
+		// 	this.setState({
+		// 		user: userData.filter(user => (
+		// 			user.id === this.props.comment.user_id
+		// 		))
+		// 	})
+		// ))
+		this.setState({user: this.props.userObj})
 	}
 
 	postComment = () => {

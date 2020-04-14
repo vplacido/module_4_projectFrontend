@@ -14,7 +14,7 @@ class CommentList extends Component {
 	renderComment = () => {
 		return this.props.allComment.map(comment => 
 		<li>
-			<Comment deleteComment={this.props.deleteComment}comment={comment}/>
+			<Comment userObj={this.props.userObj} deleteComment={this.props.deleteComment}comment={comment}/>
 		</li>
 		)
 	}

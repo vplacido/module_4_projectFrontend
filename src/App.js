@@ -19,9 +19,10 @@ function App() {
     <Router>
     <div className="App">
       <NavBar />
-      <Route exact path="/homepage" render={() => {
+      {/* <Route exact path="/homepage" render={() => {
         return <HomePageContainer/>
-      }} />
+      }} /> */}
+      <Route path='/homepage' component={HomePageContainer} />
       <Route exact path="/users/:id" render={
         () => {
           return <ProfilePage/>

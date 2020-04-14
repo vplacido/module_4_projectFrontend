@@ -4,11 +4,13 @@ class HomePageContainer extends Component {
 	constructor(){
 		super()
 		this.state = {
-			allData: []
+			allData: [],
+			userObj: []
 		}
 	}
 
 	componentDidMount(){
+     this.setState({userObj: this.props.location.state.obj})
 		fetch("http://localhost:3000/posts")
 		.then(response => response.json())
 		.then(allData => (
@@ -18,6 +20,13 @@ class HomePageContainer extends Component {
 		))
 	}
 
+	deletePost = (postId) => {
+		fetch(`http://localhost:3000/posts/${postId}`, {
+			method: "DELETE"
+		})
+		this.setState({allData: this.state.allData.filter(post => post.id !== postId)})
+	}
+
 
 	// <li className="PostLi"><Post allData={data}/></li>)
 	renderPosts = () => {
@@ -25,7 +34,7 @@ class HomePageContainer extends Component {
 		let arr = []
 		for(let i = this.state.allData.length -1; i > -1; i--) {
 			let post = this.state.allData.find(post => post.id === this.state.allData[i].id)
-			arr.push(<Post post={post} key={this.state.allData[i].id} allData ={this.state.allData[i]} />) 
+			arr.push(<Post deletePost={this.deletePost}userObj={this.state.userObj} post={post} key={this.state.allData[i].id} allData ={this.state.allData[i]} />) 
 		}
 		return arr
 	}
