@@ -11,15 +11,15 @@ class Comment extends Component {
 	}
 
 	componentDidMount(){
-		// fetch("http://localhost:3000/users")
-		// .then(response => response.json())
-		// .then(userData => (
-		// 	this.setState({
-		// 		user: userData.filter(user => (
-		// 			user.id === this.props.comment.user_id
-		// 		))
-		// 	})
-		// ))
+		fetch("http://localhost:3000/users")
+		.then(response => response.json())
+		.then(userData => (
+			this.setState({
+				user: userData.filter(user => (
+					user.id === this.props.comment.user_id
+				))
+			})
+		))
 		this.setState({user: this.props.userObj})
 	}
 
@@ -33,8 +33,10 @@ class Comment extends Component {
 	render(){
 		return(
 			<div>
+				<div className="imgContainer">
+				<img className="img" src={this.state.user.map(user => user.profile_img)} />
 				<p>{this.postComment()}</p>
-
+				</div>
 				<p>{this.props.comment.content}</p>
 
 

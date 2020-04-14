@@ -37,7 +37,7 @@ class Post extends Component {
 	}
 
 
-	addToComment = (content, obj) => {
+	addToComment = (content, userObj, event) => {
 		fetch('http://localhost:3000/comments', {
 			method: "POST",
 			headers: {
@@ -46,7 +46,7 @@ class Post extends Component {
 			},
 			body: JSON.stringify({
 				user_id: 27,
-				post_id: obj.id,
+				post_id: userObj.id,
 				content: content
 			})
 		})
@@ -75,7 +75,7 @@ class Post extends Component {
 	
 
 	render(){
-		console.log(this.state.userObj.map(user=> user.id)[0], this.props.post.user_id)
+		
 		return(
 			<li className="PostLi">
 				{ this.state.userObj.map(user=> user.id)[0] === this.props.post.user_id ? (

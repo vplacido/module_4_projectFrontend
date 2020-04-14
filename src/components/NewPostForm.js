@@ -3,8 +3,9 @@ import React, {Component} from 'react'
 class NewPostForm extends Component {
 
 	inputHandler = (event) => {
+		event.preventDefault()
 		let newPost = {
-			user_id: 28,
+			user_id: 22,
 			img: event.target.url.value,
 			content: event.target.content.value
 		}

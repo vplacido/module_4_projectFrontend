@@ -15,6 +15,24 @@ import {
   useParams 
 } from "react-router-dom";
 function App() {
+
+  let newPost = (newPost) => {
+		fetch("http://localhost:3000/posts",{
+			method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+			body: JSON.stringify(
+				newPost
+			)
+    })
+    window.location="/homepage"
+	}
+
+
+
+
   return (
     <Router>
     <div className="App">
@@ -34,7 +52,9 @@ function App() {
        <Route exact path="/signup" render={() => {
         return <NewUserForm/>
       }}/>
-        <Route exact path="/posts/new" component={NewPostForm}/>
+        <Route exact path="/posts/new" render ={() => {
+          return < NewPostForm newPost={newPost}/>
+        }}/>
     </div>
     </Router>
   );

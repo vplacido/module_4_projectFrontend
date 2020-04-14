@@ -1,13 +1,7 @@
 import React, {Component} from 'react'
 import NewPostForm from '../components/NewPostForm'
 class UserPostContainer extends Component {
-	constructor(){
-		super()
-		this.state = {
-			url: "",
-			content: ""
-		}
-	}
+	
 	// renderUser = () => {
 	// 	fetch("http://localhost:3000/users")
 	// 	.then(response => response.json())
@@ -25,14 +19,11 @@ class UserPostContainer extends Component {
 				newPost
 			)
 		})
-		
 	}
 	render(){
 		return(
 			<div className="container">
 			<div className="top-half">
-				<NewPostForm newPost={this.newPost}/>
-				{/* {this.renderUser()} */}
 			</div>
 			<div className="bot-half">
 

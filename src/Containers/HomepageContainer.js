@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Post from '../components/Post'
+import NewPostForm from '../components/NewPostForm'
 class HomePageContainer extends Component {
 	constructor(){
 		super()
@@ -10,7 +11,7 @@ class HomePageContainer extends Component {
 	}
 
 	componentDidMount(){
-     this.setState({userObj: this.props.location.state.obj})
+    //  this.setState({userObj: this.props.location.state.obj})
 		fetch("http://localhost:3000/posts")
 		.then(response => response.json())
 		.then(allData => (
@@ -40,6 +41,7 @@ class HomePageContainer extends Component {
 	}
 	render(){
 		return(
+		
 			<div>
 				<ul className="PostUl">
 					{this.renderPosts()}

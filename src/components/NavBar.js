@@ -9,7 +9,26 @@ import {
   useParams
 } from "react-router-dom";
 class NavBar extends Component {
+	constructor(){
+		super()
+		this.state = {
+			allUsers: [],
+			searchUser: ""
+		}
+	}
 
+	componentDidMount(){
+		fetch("http://localhost:3000/users")
+		.then(response => response.json())
+		.then(usersData => (
+			this.setState({allUsers: usersData})
+		))
+	}
+
+
+	updateSearchState = (term) => {
+		this.setState({searchUser: term})
+	}
 
 
 	newPost = () => {
@@ -19,6 +38,8 @@ class NavBar extends Component {
 		return window.location = "/homepage"
 	}
 	render(){
+
+		let filteredUser = this.state.allUsers.filter(user => user.username.includes(this.state.searchUser))
 		return(
 			<Router>
 			<div>
@@ -37,12 +58,12 @@ class NavBar extends Component {
 					</span>
 				</div>
 				<div className=".col-xs-6 .col-md-4">
-					<span className="navbar-brand mb-0 h1"><SearchBar /></span>
+					<span className="navbar-brand mb-0 h1"><SearchBar searchTerm={this.state.searchUser}filteredUser={filteredUser}updateSearchState={this.updateSearchState}/></span>
 				</div>
 			<div className=".col-xs-6 .col-md-4">
 
 
-			<Link to="/posts/new"><span className="navbar-brand mb-0 h1">
+			<span className="navbar-brand mb-0 h1">
 
 			<svg onClick={() => {this.newPost()}}class="bi bi-plus-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   			<path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
@@ -50,7 +71,8 @@ class NavBar extends Component {
   			<path fill-rule="evenodd" d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
 			</svg>
 			</span>
-			</Link>
+		
+
 				<Link to="/users/:id"><span className="navbar-brand mb-0 h1">
 					<svg className="bi bi-people-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   				<path fillRule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clipRule="evenodd"/>
