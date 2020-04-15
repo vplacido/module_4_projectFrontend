@@ -46,7 +46,8 @@ function App() {
           return <ProfilePage/>
         }
       }/>
-      <Route exact path="/login" render={() => {
+      {/* chnage from path="/login" */}
+      <Route exact path="/" render={() => {
         return <Login/>
       }}/>
        <Route exact path="/signup" render={() => {

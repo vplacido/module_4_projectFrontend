@@ -70,6 +70,8 @@ class Post extends Component {
 	userProfile = (userObj) => {
 		localStorage.setItem("username", JSON.stringify(userObj.username))
 		localStorage.setItem("profile_img", JSON.stringify(userObj.profile_img))
+		localStorage.setItem("user_id", JSON.stringify(userObj.id))
+		localStorage.setItem("bio", JSON.stringify(userObj.description))
 		return window.location = `/users/${userObj.id}`
 	}
 	

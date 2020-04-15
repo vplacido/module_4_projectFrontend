@@ -280,3 +280,35 @@ img {
   font-weight: 600;
 }
 
+.user-photos {
+  display: flex;
+  height: auto;
+  width: 100%;
+}
+
+.user-photos-list {
+  margin: auto;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  max-width: 940px;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.user-photos-list-item {
+  margin: 1%;
+  height: 293px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-photos-list-item img {
+  width: 293px;
+  height: 293px;
+  object-fit: cover;
+  cursor: pointer;
+}
