@@ -32,7 +32,7 @@ class CommentList extends Component {
 		
 		return(
 			<div>
-				<form onSubmit={ (event) => {
+				<form onSubmit={ () => {
 				this.props.addToComment(this.state.content, this.props.post)
 					}}>
 				<input type="text" placeholder="write a comment here..." onChange={this.newContent}/>

@@ -37,7 +37,7 @@ class Post extends Component {
 	}
 
 
-	addToComment = (content, userObj, event) => {
+	addToComment = (content, userObj,event) => {
 		fetch('http://localhost:3000/comments', {
 			method: "POST",
 			headers: {
@@ -45,7 +45,7 @@ class Post extends Component {
 				Accept: 'application/json'
 			},
 			body: JSON.stringify({
-				user_id: 27,
+				user_id: userObj.user_id,
 				post_id: userObj.id,
 				content: content
 			})

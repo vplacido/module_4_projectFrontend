@@ -5,7 +5,7 @@ class NewPostForm extends Component {
 	inputHandler = (event) => {
 		event.preventDefault()
 		let newPost = {
-			user_id: 22,
+			user_id: 139,
 			img: event.target.url.value,
 			content: event.target.content.value
 		}
